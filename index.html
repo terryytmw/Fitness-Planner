@@ -1,1 +1,1096 @@
-t
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-12 Month Fat Loss Journey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px;
+            background: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .card h3 {
+            color: #764ba2;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border 0.3s;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .workout-day {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .workout-day h4 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .exercise-list {
+            list-style: none;
+        }
+
+        .exercise-list li {
+            background: white;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .exercise-name {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .exercise-details {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .progress-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .meal-plan {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .meal-plan h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .meal-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .tips-list {
+            list-style: none;
+        }
+
+        .tips-list li {
+            padding: 12px;
+            margin-bottom: 8px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid #764ba2;
+        }
+
+        .tips-list li::before {
+            content: "✓ ";
+            color: #764ba2;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .progress-log {
+            margin-top: 20px;
+        }
+
+        .log-entry {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .log-entry button {
+            padding: 8px 15px;
+            background: #f5576c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .phase-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .phase-btn {
+            padding: 15px;
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .phase-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .phase-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab-btn {
+                width: 100%;
+            }
+
+            .progress-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏋️ Your 6-12 Month Fat Loss Journey</h1>
+            <p>Sustainable transformation while enjoying your food</p>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab('profile')">👤 Profile</button>
+            <button class="tab-btn" onclick="openTab('workout')">💪 Workouts</button>
+            <button class="tab-btn" onclick="openTab('nutrition')">🍽️ Nutrition</button>
+            <button class="tab-btn" onclick="openTab('progress')">📊 Progress</button>
+            <button class="tab-btn" onclick="openTab('tips')">💡 Tips</button>
+        </div>
+
+        <!-- Profile Tab -->
+        <div id="profile" class="tab-content active">
+            <div class="card">
+                <h2>Set Your Profile & Goals</h2>
+                <div class="input-group">
+                    <label>Current Weight (kg)</label>
+                    <input type="number" id="currentWeight" placeholder="e.g., 85" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label>Target Weight (kg)</label>
+                    <input type="number" id="targetWeight" placeholder="e.g., 75" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label>Height (cm)</label>
+                    <input type="number" id="height" placeholder="e.g., 175" step="1">
+                </div>
+                <div class="input-group">
+                    <label>Timeline</label>
+                    <select id="timeline">
+                        <option value="6">6 Months</option>
+                        <option value="9">9 Months</option>
+                        <option value="12">12 Months</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Age</label>
+                    <input type="number" id="age" placeholder="e.g., 30" step="1">
+                </div>
+                <div class="input-group">
+                    <label>Gender</label>
+                    <select id="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <button class="btn" onclick="saveProfile()">Save Profile & Calculate Goals</button>
+                
+                <div id="profileResults" style="margin-top: 20px; display: none;">
+                    <h3>Your Personalized Goals</h3>
+                    <div class="progress-stats">
+                        <div class="stat-card">
+                            <div class="stat-value" id="bmi">--</div>
+                            <div class="stat-label">Current BMI</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="weeklyLoss">--</div>
+                            <div class="stat-label">Weekly Goal (kg)</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="dailyCalories">--</div>
+                            <div class="stat-label">Daily Calories</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="targetBMI">--</div>
+                            <div class="stat-label">Target BMI</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workout Tab -->
+        <div id="workout" class="tab-content">
+            <div class="card">
+                <h2>Tuesday & Friday Afternoon Workouts</h2>
+                <p style="margin-bottom: 20px; color: #666;">Select your current phase based on your progress:</p>
+                
+                <div class="phase-selector">
+                    <div class="phase-btn active" onclick="selectPhase('beginner')">
+                        <strong>Months 1-2</strong><br>Foundation
+                    </div>
+                    <div class="phase-btn" onclick="selectPhase('intermediate')">
+                        <strong>Months 3-6</strong><br>Building
+                    </div>
+                    <div class="phase-btn" onclick="selectPhase('advanced')">
+                        <strong>Months 7-12</strong><br>Advanced
+                    </div>
+                </div>
+
+                <div id="beginnerWorkout" class="phase-workout">
+                    <div class="workout-day">
+                        <h4>🔥 Tuesday - Full Body Strength</h4>
+                        <ul class="exercise-list">
+                            <li>
+                                <span class="exercise-name">Warm-up: Light Cardio</span>
+                                <span class="exercise-details">5-10 minutes</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Bodyweight Squats</span>
+                                <span class="exercise-details">3 sets × 12 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Push-ups (knee or regular)</span>
+                                <span class="exercise-details">3 sets × 8-12 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Dumbbell Rows</span>
+                                <span class="exercise-details">3 sets × 12 reps each arm</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Plank Hold</span>
+                                <span class="exercise-details">3 sets × 20-30 seconds</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Walking Lunges</span>
+                                <span class="exercise-details">3 sets × 10 reps each leg</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Cool-down Stretching</span>
+                                <span class="exercise-details">5-10 minutes</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="workout-day">
+                        <h4>🔥 Friday - Cardio & Core</h4>
+                        <ul class="exercise-list">
+                            <li>
+                                <span class="exercise-name">Warm-up: Dynamic Stretches</span>
+                                <span class="exercise-details">5 minutes</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Brisk Walking or Light Jogging</span>
+                                <span class="exercise-details">20 minutes</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Mountain Climbers</span>
+                                <span class="exercise-details">3 sets × 15 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Bicycle Crunches</span>
+                                <span class="exercise-details">3 sets × 20 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Dead Bug Exercise</span>
+                                <span class="exercise-details">3 sets × 12 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Side Plank</span>
+                                <span class="exercise-details">2 sets × 20 seconds each side</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Cool-down Walk & Stretch</span>
+                                <span class="exercise-details">10 minutes</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="intermediateWorkout" class="phase-workout" style="display: none;">
+                    <div class="workout-day">
+                        <h4>🔥 Tuesday - Strength & Power</h4>
+                        <ul class="exercise-list">
+                            <li>
+                                <span class="exercise-name">Warm-up: Jump Rope</span>
+                                <span class="exercise-details">5 minutes</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Goblet Squats</span>
+                                <span class="exercise-details">4 sets × 12 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Bench Press or Push-ups</span>
+                                <span class="exercise-details">4 sets × 10-12 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Dumbbell Deadlifts</span>
+                                <span class="exercise-details">4 sets × 10 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Bent-over Rows</span>
+                                <span class="exercise-details">4 sets × 12 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Shoulder Press</span>
+                                <span class="exercise-details">3 sets × 12 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Plank to Push-up</span>
+                                <span class="exercise-details">3 sets × 10 reps</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="workout-day">
+                        <h4>🔥 Friday - HIIT & Conditioning</h4>
+                        <ul class="exercise-list">
+                            <li>
+                                <span class="exercise-name">Warm-up: Dynamic Movement</span>
+                                <span class="exercise-details">5 minutes</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">HIIT Circuit: Burpees</span>
+                                <span class="exercise-details">30 sec work / 30 sec rest × 4</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">HIIT Circuit: High Knees</span>
+                                <span class="exercise-details">30 sec work / 30 sec rest × 4</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">HIIT Circuit: Jump Squats</span>
+                                <span class="exercise-details">30 sec work / 30 sec rest × 4</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Kettlebell Swings</span>
+                                <span class="exercise-details">4 sets × 15 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Russian Twists</span>
+                                <span class="exercise-details">3 sets × 30 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Hanging Leg Raises</span>
+                                <span class="exercise-details">3 sets × 12 reps</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="advancedWorkout" class="phase-workout" style="display: none;">
+                    <div class="workout-day">
+                        <h4>🔥 Tuesday - Heavy Compound Lifts</h4>
+                        <ul class="exercise-list">
+                            <li>
+                                <span class="exercise-name">Warm-up: Mobility Drills</span>
+                                <span class="exercise-details">10 minutes</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Barbell Back Squats</span>
+                                <span class="exercise-details">5 sets × 8 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Barbell Bench Press</span>
+                                <span class="exercise-details">5 sets × 8 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Conventional Deadlifts</span>
+                                <span class="exercise-details">4 sets × 6 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Weighted Pull-ups</span>
+                                <span class="exercise-details">4 sets × 8-10 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Dumbbell Shoulder Press</span>
+                                <span class="exercise-details">4 sets × 10 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Weighted Planks</span>
+                                <span class="exercise-details">3 sets × 45 seconds</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="workout-day">
+                        <h4>🔥 Friday - Metabolic Conditioning</h4>
+                        <ul class="exercise-list">
+                            <li>
+                                <span class="exercise-name">Warm-up: Row or Bike</span>
+                                <span class="exercise-details">5 minutes</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Tabata: Battle Ropes</span>
+                                <span class="exercise-details">20 sec work / 10 sec rest × 8</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Box Jumps</span>
+                                <span class="exercise-details">5 sets × 12 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Farmer's Carry</span>
+                                <span class="exercise-details">4 sets × 40 meters</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Medicine Ball Slams</span>
+                                <span class="exercise-details">4 sets × 15 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Toes to Bar</span>
+                                <span class="exercise-details">4 sets × 12 reps</span>
+                            </li>
+                            <li>
+                                <span class="exercise-name">Assault Bike Sprints</span>
+                                <span class="exercise-details">5 sets × 30 seconds max effort</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button class="btn" onclick="logWorkout()">✓ Log Today's Workout</button>
+            </div>
+        </div>
+
+        <!-- Nutrition Tab -->
+        <div id="nutrition" class="tab-content">
+            <div class="card">
+                <h2>2-Meal Daily Nutrition Plan</h2>
+                <p style="margin-bottom: 20px; color: #666;">Enjoy your food while creating a sustainable calorie deficit</p>
+
+                <div class="meal-plan">
+                    <h4>☀️ Morning Meal (9-11 AM)</h4>
+                    <div class="meal-item">
+                        <strong>Balanced Breakfast Options:</strong>
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li>2-3 eggs + whole grain toast + avocado + vegetables</li>
+                            <li>Oatmeal + protein powder + nuts + berries</li>
+                            <li>Greek yogurt bowl + granola + fruits + honey</li>
+                            <li>Smoothie: protein powder + banana + spinach + peanut butter + oats</li>
+                        </ul>
+                        <p style="margin-top: 10px; color: #667eea;"><strong>Target: 600-800 calories</strong></p>
+                    </div>
+                </div>
+
+                <div class="meal-plan">
+                    <h4>🌙 Evening Meal (6-8 PM)</h4>
+                    <div class="meal-item">
+                        <strong>Satisfying Dinner Options:</strong>
+                        <ul style="margin-top: 10px; margin-left: 20px;">
+                            <li>Grilled chicken/fish + rice/quinoa + large salad + vegetables</li>
+                            <li>Lean beef/pork + sweet potato + steamed veggies</li>
+                            <li>Pasta with lean meat sauce + side salad</li>
+                            <li>Stir-fry with protein + mixed vegetables + rice</li>
+                            <li>Your favorite local cuisine (portion controlled)</li>
+                        </ul>
+                        <p style="margin-top: 10px; color: #667eea;"><strong>Target: 700-900 calories</strong></p>
+                    </div>
+                </div>
+
+                <h3>Smart Eating Strategies</h3>
+                <ul class="tips-list">
+                    <li>Drink water before meals to help with satiety</li>
+                    <li>Fill half your plate with vegetables</li>
+                    <li>Choose lean proteins to keep you fuller longer</li>
+                    <li>Enjoy your favorite foods in moderate portions</li>
+                    <li>Stay hydrated: aim for 2-3 liters of water daily</li>
+                    <li>Allow yourself 1-2 "cheat meals" per week to stay sane</li>
+                </ul>
+
+                <h3>Snack Guidelines (If Needed)</h3>
+                <div class="meal-item">
+                    <p><strong>Low-calorie options between meals:</strong></p>
+                    <ul style="margin-top: 10px; margin-left: 20px;">
+                        <li>Fruits (apple, orange, berries)</li>
+                        <li>Handful of nuts (20-30g)</li>
+                        <li>Protein shake</li>
+                        <li>Vegetable sticks with hummus</li>
+                    </ul>
+                    <p style="margin-top: 10px; color: #666;"><em>Keep snacks under 200 calories total per day</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Tab -->
+        <div id="progress" class="tab-content">
+            <div class="card">
+                <h2>Track Your Progress</h2>
+                
+                <div class="input-group">
+                    <label>Today's Weight (kg)</label>
+                    <input type="number" id="todayWeight" placeholder="e.g., 84.5" step="0.1">
+                </div>
+                
+                <div class="input-group">
+                    <label>Body Fat % (Optional)</label>
+                    <input type="number" id="bodyFat" placeholder="e.g., 25" step="0.1">
+                </div>
+
+                <div class="input-group">
+                    <label>Waist Measurement (cm)</label>
+                    <input type="number" id="waist" placeholder="e.g., 95" step="0.1">
+                </div>
+
+                <div class="input-group">
+                    <label>Energy Level (1-10)</label>
+                    <select id="energyLevel">
+                        <option value="1">1 - Very Low</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 - Average</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10 - Excellent</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Notes</label>
+                    <input type="text" id="progressNotes" placeholder="How are you feeling? Any challenges?">
+                </div>
+
+                <button class="btn" onclick="saveProgress()">Save Progress Entry</button>
+
+                <div class="progress-log">
+                    <h3>Progress History</h3>
+                    <div id="progressHistory"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tips Tab -->
+        <div id="tips" class="tab-content">
+            <div class="card">
+                <h2>Success Tips for Your Journey</h2>
+
+                <h3>🎯 Mindset & Motivation</h3>
+                <ul class="tips-list">
+                    <li>Focus on how you feel, not just the scale number</li>
+                    <li>Take progress photos monthly - they show what the scale doesn't</li>
+                    <li>Celebrate non-scale victories: more energy, better sleep, clothes fitting better</li>
+                    <li>Remember: 6-12 months may seem long, but sustainable results last forever</li>
+                    <li>Don't aim for perfection - aim for consistency</li>
+                </ul>
+
+                <h3>💪 Workout Tips</h3>
+                <ul class="tips-list">
+                    <li>Tuesday & Friday schedule is perfect - gives you 3-4 days rest between sessions</li>
+                    <li>On non-workout days, try light walking (20-30 minutes) if possible</li>
+                    <li>Progressive overload: gradually increase weight or reps every 2 weeks</li>
+                    <li>Listen to your body - if you're too sore, rest an extra day</li>
+                    <li>Stay active on weekends: take walks, play sports, or do active hobbies</li>
+                </ul>
+
+                <h3>🍽️ Nutrition Wisdom</h3>
+                <ul class="tips-list">
+                    <li>2 meals a day works great for fat loss when done right</li>
+                    <li>Eating window: Try to keep meals 8-10 hours apart</li>
+                    <li>Protein is king: aim for 1.6-2g per kg of body weight daily</li>
+                    <li>Don't drink your calories - stick to water, black coffee, or tea between meals</li>
+                    <li>Weekend strategy: allow more flexibility but stay mindful of portions</li>
+                    <li>If hungry between meals: drink water first, wait 20 minutes</li>
+                </ul>
+
+                <h3>📈 Realistic Expectations</h3>
+                <ul class="tips-list">
+                    <li>Healthy fat loss: 0.5-1 kg per week (2-4 kg per month)</li>
+                    <li>First 2 weeks: may lose 2-3 kg (water weight) - this is normal</li>
+                    <li>Months 1-3: Fastest fat loss phase</li>
+                    <li>Months 4-6: Rate may slow - this is normal, stay consistent</li>
+                    <li>Months 7-12: Final refinement and habit solidification</li>
+                    <li>Weight fluctuates daily - weigh weekly, same day/time</li>
+                </ul>
+
+                <h3>🛠️ Practical Tools</h3>
+                <ul class="tips-list">
+                    <li>Get a food scale for accurate portions (first month only)</li>
+                    <li>Meal prep on Sunday for easier weekday nutrition</li>
+                    <li>Set phone reminders for workout days</li>
+                    <li>Keep a water bottle with you always</li>
+                    <li>Sleep 7-8 hours nightly - crucial for fat loss</li>
+                </ul>
+
+                <h3>⚠️ Common Pitfalls to Avoid</h3>
+                <ul class="tips-list">
+                    <li>Don't skip meals thinking it will speed up fat loss</li>
+                    <li>Don't eliminate entire food groups you enjoy</li>
+                    <li>Don't compare your progress to others</li>
+                    <li>Don't quit if you have a bad day/week - just get back on track</li>
+                    <li>Don't over-restrict - you should still enjoy eating</li>
+                </ul>
+
+                <h3>🔄 When to Adjust</h3>
+                <ul class="tips-list">
+                    <li>No weight loss for 3 weeks: reduce calories by 100-200</li>
+                    <li>Losing more than 1.5kg/week: increase calories slightly</li>
+                    <li>Always hungry: add more protein and vegetables</li>
+                    <li>Always tired: check if you're eating enough, sleeping enough</li>
+                    <li>After 3 months: reassess and adjust plan as needed</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize data structure
+        let userData = {
+            profile: {},
+            workouts: [],
+            progress: []
+        };
+
+        // Load saved data on page load
+        window.onload = function() {
+            loadData();
+            if (userData.profile.currentWeight) {
+                displayProfileResults();
+            }
+            displayProgressHistory();
+        };
+
+        // Tab switching
+        function openTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Phase selection
+        function selectPhase(phase) {
+            const phaseBtns = document.querySelectorAll('.phase-btn');
+            phaseBtns.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            document.getElementById('beginnerWorkout').style.display = 'none';
+            document.getElementById('intermediateWorkout').style.display = 'none';
+            document.getElementById('advancedWorkout').style.display = 'none';
+
+            if (phase === 'beginner') {
+                document.getElementById('beginnerWorkout').style.display = 'block';
+            } else if (phase === 'intermediate') {
+                document.getElementById('intermediateWorkout').style.display = 'block';
+            } else {
+                document.getElementById('advancedWorkout').style.display = 'block';
+            }
+        }
+
+        // Save profile
+        function saveProfile() {
+            const currentWeight = parseFloat(document.getElementById('currentWeight').value);
+            const targetWeight = parseFloat(document.getElementById('targetWeight').value);
+            const height = parseFloat(document.getElementById('height').value);
+            const timeline = parseInt(document.getElementById('timeline').value);
+            const age = parseInt(document.getElementById('age').value);
+            const gender = document.getElementById('gender').value;
+
+            if (!currentWeight || !targetWeight || !height || !age) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            if (currentWeight <= targetWeight) {
+                alert('Current weight should be higher than target weight for fat loss');
+                return;
+            }
+
+            userData.profile = {
+                currentWeight,
+                targetWeight,
+                height,
+                timeline,
+                age,
+                gender,
+                startDate: new Date().toISOString()
+            };
+
+            saveData();
+            displayProfileResults();
+            alert('Profile saved successfully!');
+        }
+
+        // Calculate and display profile results
+        function displayProfileResults() {
+            const profile = userData.profile;
+            const heightM = profile.height / 100;
+            
+            // Calculate BMI
+            const currentBMI = (profile.currentWeight / (heightM * heightM)).toFixed(1);
+            const targetBMI = (profile.targetWeight / (heightM * heightM)).toFixed(1);
+            
+            // Calculate weekly loss
+            const totalLoss = profile.currentWeight - profile.targetWeight;
+            const weeks = profile.timeline * 4.33; // approximate weeks per month
+            const weeklyLoss = (totalLoss / weeks).toFixed(2);
+            
+            // Calculate daily calories (simplified)
+            let bmr;
+            if (profile.gender === 'male') {
+                bmr = 10 * profile.currentWeight + 6.25 * profile.height - 5 * profile.age + 5;
+            } else {
+                bmr = 10 * profile.currentWeight + 6.25 * profile.height - 5 * profile.age - 161;
+            }
+            
+            // Activity multiplier for 2x/week moderate exercise
+            const tdee = bmr * 1.375;
+            
+            // Create deficit for target weekly loss (7700 cal = 1kg fat)
+            const dailyDeficit = (parseFloat(weeklyLoss) * 7700) / 7;
+            const dailyCalories = Math.round(tdee - dailyDeficit);
+
+            // Display results
+            document.getElementById('bmi').textContent = currentBMI;
+            document.getElementById('targetBMI').textContent = targetBMI;
+            document.getElementById('weeklyLoss').textContent = weeklyLoss;
+            document.getElementById('dailyCalories').textContent = dailyCalories;
+            
+            document.getElementById('profileResults').style.display = 'block';
+        }
+
+        // Log workout
+        function logWorkout() {
+            const today = new Date().toISOString().split('T')[0];
+            const dayOfWeek = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+            
+            if (dayOfWeek !== 'Tuesday' && dayOfWeek !== 'Friday') {
+                if (!confirm(`Today is ${dayOfWeek}. Your scheduled days are Tuesday and Friday. Log workout anyway?`)) {
+                    return;
+                }
+            }
+
+            userData.workouts.push({
+                date: today,
+                day: dayOfWeek,
+                completed: true
+            });
+
+            saveData();
+            alert('Workout logged! Great job! 💪');
+        }
+
+        // Save progress
+        function saveProgress() {
+            const todayWeight = parseFloat(document.getElementById('todayWeight').value);
+            const bodyFat = document.getElementById('bodyFat').value;
+            const waist = document.getElementById('waist').value;
+            const energyLevel = document.getElementById('energyLevel').value;
+            const notes = document.getElementById('progressNotes').value;
+
+            if (!todayWeight) {
+                alert('Please enter your weight');
+                return;
+            }
+
+            const progressEntry = {
+                date: new Date().toISOString().split('T')[0],
+                weight: todayWeight,
+                bodyFat: bodyFat || null,
+                waist: waist || null,
+                energyLevel: energyLevel,
+                notes: notes
+            };
+
+            userData.progress.push(progressEntry);
+            saveData();
+            
+            // Clear inputs
+            document.getElementById('todayWeight').value = '';
+            document.getElementById('bodyFat').value = '';
+            document.getElementById('waist').value = '';
+            document.getElementById('energyLevel').value = '5';
+            document.getElementById('progressNotes').value = '';
+
+            displayProgressHistory();
+            alert('Progress saved! Keep going! 🎯');
+        }
+
+        // Display progress history
+        function displayProgressHistory() {
+            const container = document.getElementById('progressHistory');
+            
+            if (userData.progress.length === 0) {
+                container.innerHTML = '<p style="color: #666; text-align: center; padding: 20px;">No progress entries yet. Start tracking!</p>';
+                return;
+            }
+
+            // Sort by date, most recent first
+            const sortedProgress = [...userData.progress].sort((a, b) => 
+                new Date(b.date) - new Date(a.date)
+            );
+
+            let html = '';
+            sortedProgress.forEach((entry, index) => {
+                let changeText = '';
+                if (index < sortedProgress.length - 1) {
+                    const previousWeight = sortedProgress[index + 1].weight;
+                    const change = entry.weight - previousWeight;
+                    const changeColor = change <= 0 ? '#28a745' : '#dc3545';
+                    changeText = `<span style="color: ${changeColor}; font-weight: bold;">${change > 0 ? '+' : ''}${change.toFixed(1)} kg</span>`;
+                }
+
+                html += `
+                    <div class="log-entry">
+                        <div>
+                            <strong>${new Date(entry.date).toLocaleDateString()}</strong><br>
+                            Weight: ${entry.weight} kg ${changeText}
+                            ${entry.bodyFat ? `<br>Body Fat: ${entry.bodyFat}%` : ''}
+                            ${entry.waist ? `<br>Waist: ${entry.waist} cm` : ''}
+                            <br>Energy: ${entry.energyLevel}/10
+                            ${entry.notes ? `<br><em>${entry.notes}</em>` : ''}
+                        </div>
+                        <button onclick="deleteProgress(${index})">Delete</button>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+
+            // Show summary if we have profile and progress
+            if (userData.profile.currentWeight && userData.progress.length > 0) {
+                const latestWeight = sortedProgress[0].weight;
+                const totalLoss = userData.profile.currentWeight - latestWeight;
+                const remaining = latestWeight - userData.profile.targetWeight;
+                
+                const summaryHtml = `
+                    <div class="progress-stats" style="margin-bottom: 20px;">
+                        <div class="stat-card">
+                            <div class="stat-value">${totalLoss.toFixed(1)}</div>
+                            <div class="stat-label">Total Lost (kg)</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${remaining.toFixed(1)}</div>
+                            <div class="stat-label">Remaining (kg)</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${((totalLoss / (userData.profile.currentWeight - userData.profile.targetWeight)) * 100).toFixed(0)}%</div>
+                            <div class="stat-label">Progress</div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML = summaryHtml + html;
+            }
+        }
+
+        // Delete progress entry
+        function deleteProgress(index) {
+            if (confirm('Delete this progress entry?')) {
+                const sortedProgress = [...userData.progress].sort((a, b) => 
+                    new Date(b.date) - new Date(a.date)
+                );
+                const entryToDelete = sortedProgress[index];
+                userData.progress = userData.progress.filter(p => p.date !== entryToDelete.date);
+                saveData();
+                displayProgressHistory();
+            }
+        }
+
+        // Save data to localStorage
+        function saveData() {
+            localStorage.setItem('fatLossAppData', JSON.stringify(userData));
+        }
+
+        // Load data from localStorage
+        function loadData() {
+            const saved = localStorage.getItem('fatLossAppData');
+            if (saved) {
+                userData = JSON.parse(saved);
+                
+                // Populate profile fields if they exist
+                if (userData.profile.currentWeight) {
+                    document.getElementById('currentWeight').value = userData.profile.currentWeight;
+                    document.getElementById('targetWeight').value = userData.profile.targetWeight;
+                    document.getElementById('height').value = userData.profile.height;
+                    document.getElementById('timeline').value = userData.profile.timeline;
+                    document.getElementById('age').value = userData.profile.age;
+                    document.getElementById('gender').value = userData.profile.gender;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
